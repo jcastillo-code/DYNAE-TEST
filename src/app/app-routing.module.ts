@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: '', 
+    path: 'user', 
     loadChildren: () => import('./layaouts/user-view/user-view.module').then(m => m.UserViewModule)
   },
   { path: '**', pathMatch: 'full', redirectTo: 'user' }

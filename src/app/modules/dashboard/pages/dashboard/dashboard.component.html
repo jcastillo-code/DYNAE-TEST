@@ -1,1 +1,48 @@
-<h1>DASHBOARD</h1>
+<div fxLayout="row" fxLayoutAlign="center" class="stats-cards" style="height: 12vh;" fxLayoutGap="10px">
+    <mat-card fxFlex="70">
+
+        <div>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Dispositivo</mat-label>
+                <mat-select name="food" #inputDevice>
+                    <mat-option *ngFor="let dispositivo of dispositivos" [value]="dispositivo.id">
+                        {{ dispositivo.name }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field color="accent" appearance="fill">
+                <mat-label>Desde</mat-label>
+                <input matInput [matDatepicker]="fromDate" #inputFromDate>
+                <mat-datepicker-toggle matSuffix [for]="fromDate"></mat-datepicker-toggle>
+                <mat-datepicker #fromDate></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field color="accent" appearance="fill">
+                <mat-label>Hasta</mat-label>
+                <input matInput [matDatepicker]="toDate" #inputToDate>
+                <mat-datepicker-toggle matSuffix [for]="toDate"></mat-datepicker-toggle>
+                <mat-datepicker #toDate color="primary"></mat-datepicker>
+            </mat-form-field>
+
+            <button mat-fab color="primary" aria-label="Buscar Info" (click)="loadData(inputDevice.value, inputFromDate.value, inputToDate.value);">
+                <mat-icon>search</mat-icon>
+            </button>
+
+        </div>
+
+    </mat-card>
+</div>
+<br>
+<div fxLayout="row" fxLayoutAlign="center" style="height: 20vh;" fxLayoutGap="20px">
+    <mat-card fxFlex="100">
+        <app-info-card></app-info-card>
+    </mat-card>
+</div>
+<br>
+<div fxLayout="row" fxLayoutAlign="center" style="height: 45vh;" fxLayoutGap="20px">
+    <mat-card fxFlex="100">
+        <app-linechart></app-linechart>
+    </mat-card>
+</div>

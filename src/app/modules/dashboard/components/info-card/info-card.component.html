@@ -1,0 +1,12 @@
+<div style="align-content: center; text-align: center;">
+    <h2><b>{{stateCardData.sum}}</b></h2>
+</div>
+
+
+
+<div class="statecard">
+    <mat-card *ngFor="let card of stateCardData.indexDetail">
+        {{card.magnitude}} {{card.from}}
+
+    </mat-card>
+</div>
